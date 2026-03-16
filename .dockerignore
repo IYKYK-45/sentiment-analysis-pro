@@ -2,3 +2,6 @@ venv/
 models/
 .git/
 __pycache__/
+.gitignore
+Dockerfile
+.dockerignore
