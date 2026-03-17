@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Install system essentials
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential && \
+    build-essential \
+    curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy only the requirements file first
