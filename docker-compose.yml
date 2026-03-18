@@ -1,4 +1,5 @@
 services:
+  # This is your AI Brain (FastAPI)
   sentiment-api:
     build: .
     image: sentiment-api:v1
@@ -13,3 +14,14 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+  # This is your new UI Face (Streamlit)
+  sentiment-ui:
+    build: ./ui
+    image: sentiment-ui:v1
+    ports:
+      - "8501:8501"
+    depends_on:
+      sentiment-api:
+        condition: service_healthy
+    restart: always
